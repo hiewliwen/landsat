@@ -39,7 +39,9 @@
 
 ## About The Project
 
-![LST](images/assets/LST.png)
+<div align="center">
+<img src=images/assets/LST.png alt="LST" width="500">
+</div>
 
 One of the important urban and envirnomental planning metrics is the ambient temperature which correlates to thermal comfort. However we cannot have a accurate sensing of the ambient temperature because of the sparse ambient temperature sensors installed in Singapore. 
 
