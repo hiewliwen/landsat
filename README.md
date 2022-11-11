@@ -80,7 +80,7 @@ install.packages(c("maptools", "raster", "RColorBrewer", "rgdal", "rlist", "rstu
 2. Clone the repo
 
 ```sh
-git clone https://github.com/your_username_/Project-Name.git
+git clone https://github.com/hiewliwen/landsat.git
 ```
 
 3. Install Python & R packages
@@ -95,7 +95,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-See the [open issues](https://github.com/hlw1/LANDSAT/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/hiewliwen/landsat/issues) for a list of proposed features (and known issues).
 
 ## Contributing
 
@@ -114,7 +114,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ## License
 
-Distributed under the MIT License. See [LICENSE](https://github.com/hlw1/LANDSAT/blob/main/LICENSE.md) for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/hiewliwen/landsat/blob/main/LICENSE.md) for more information.
 
 ## Authors
 
