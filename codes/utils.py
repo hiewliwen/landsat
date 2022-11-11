@@ -1,15 +1,10 @@
 import json
 import os
-import multiprocessing as mp
 import tarfile
-
-from functools import partial
 from glob import glob
 from landsatxplore.earthexplorer import EarthExplorer
 from landsatxplore.api import API
 from tqdm import tqdm
-
-from datetime import datetime
 
 import CONFIG
 
@@ -350,7 +345,7 @@ def untar_scenes(fpath, check_exist=True, pbar=True):
     # Based on the file extension, get the appropriate read mode.
     for fname in fnames:
         if fname.endswith("tar.gz"):
-            read_mode = 'r:g'
+            read_mode = 'r:gz'
         elif fname.endswith("tar"):
             read_mode = 'r:'
         else:
@@ -363,13 +358,13 @@ def untar_scenes(fpath, check_exist=True, pbar=True):
                 print(f'Skipped untar {foldername}')
                 continue
         with tarfile.open(fname, read_mode) as tar:
-            if pbar:
-                for member in tqdm(iterable=tar.getmembers(), total=len(tar.getmembers()),
+            if pbar:                
+                for member in tqdm(iterable=tar.getmembers(), 
                                    desc=f'Extracting {foldername}'):
-                    tar.extract(member, fname.split('.')[-3])
+                    tar.extract(member=member, path=fname.split('.')[-3])
             else:
                 print(f'Extracting {foldername}')
-                if read_mode =='r:g':
+                if read_mode =='r:gz':
                     tar.extractall(fname.split('.')[-3])
                 elif read_mode =='r:':
                     tar.extractall(fname.split('.')[-2])
