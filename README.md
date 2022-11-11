@@ -85,7 +85,9 @@ git clone https://github.com/hiewliwen/landsat.git
 
 3. Install Python & R packages
 
-4. Enter your EarthExplorer credentials in `CONFIG.py`
+4. **REPLACE EARTHEXPLORER.PY WITH [THIS](https://github.com/hiewliwen/landsatxplore_updated/blob/master/landsatxplore/earthexplorer.py)**
+
+5. Enter your EarthExplorer credentials in `CONFIG.py`
 
 ## Usage
 
