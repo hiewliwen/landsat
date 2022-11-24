@@ -260,7 +260,7 @@ def download_scenes(scenes, username, password, base_dir, dataset_id,
             
 
             print(f'Downloading {_i + 1}/{_num} - {scene_id} - {display_id} (Skipped {_skipped})')
-            ee.download(display_id, output_dir=output_fpath, dataset=dataset_id, timeout=20)
+            ee.download(scene_id, output_dir=output_fpath, dataset=dataset_id, timeout=20)
 
             del undownload_list[0]
 
