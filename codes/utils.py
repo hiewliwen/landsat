@@ -231,11 +231,9 @@ def download_scenes(scenes, username, password, base_dir, dataset_id,
     if isinstance(scenes, dict):
         display_id = scenes['display_id']
         output_fpath = build_save_path(base_dir, dataset_id, display_id)
-        if check_exist:
-            _filename = scenes['landsat_product_id']
-            if len(glob(os.path.join(output_fpath, _filename) + '.*')) != 0:
-                print(f'{display_id} exist. Skipped')
-                return None
+        if check_exist and len(glob(os.path.join(output_fpath, display_id) + '.*')) > 0:
+            print(f'{display_id} exist. Skipped')
+            return None=
         scene_id = scenes['landsat_scene_id']
         print(f'Downloading {scene_id} - {display_id}')
         ee.download(scene_id, output_dir=output_fpath, dataset=dataset_id, timeout=20)
@@ -251,14 +249,10 @@ def download_scenes(scenes, username, password, base_dir, dataset_id,
         for _i, scene in enumerate(scenes):
             display_id = scene['display_id']
             output_fpath = build_save_path(base_dir, dataset_id, display_id)
-            if check_exist:
-                _filename = scene['landsat_product_id']
-                if len(glob(os.path.join(output_fpath, _filename) + '.*')) != 0:
-                    _skipped += 1
-                    continue
+            if check_exist and len(glob(os.path.join(output_fpath, display_id) + '.*')) > 0:
+                _skipped += 1
+                continue
             scene_id = scene['landsat_scene_id']
-            
-
             print(f'Downloading {_i + 1}/{_num} - {scene_id} - {display_id} (Skipped {_skipped})')
             ee.download(scene_id, output_dir=output_fpath, dataset=dataset_id, timeout=20)
 
